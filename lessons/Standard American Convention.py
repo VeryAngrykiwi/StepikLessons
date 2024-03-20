@@ -93,4 +93,6 @@ while len(n) > 3:
     n = n[3:]
 s += n
 print(s[::-1])
+
+print(f'{int(input()):,}')
 '''
