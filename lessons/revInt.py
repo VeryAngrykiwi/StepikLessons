@@ -31,4 +31,11 @@ if len(a) == 5:
 
 (lambda x: print(int(x[:-5] + x[-5:][::-1])))(input())
 
+def IntRev(num):
+    if len(num) == 5:
+        return int(num[-1::-1])
+    else:
+        return int(num[0] + num[-1:-6:-1])
+
+print(IntRev(input('Введите число: ')))
 '''
