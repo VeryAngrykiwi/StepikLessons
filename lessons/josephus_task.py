@@ -162,4 +162,13 @@ while len(n) > 1:
     c %= len(n)
     n.pop(c)
 print(*n)
+
+import collections
+n = [i for i in range(int(input()))]
+m = int(input())
+deq = collections.deque(enumerate(n))
+while len(deq) > 1:
+ deq.rotate(-m)
+ deq.pop()
+print(deq[0][0]+1)
 '''
