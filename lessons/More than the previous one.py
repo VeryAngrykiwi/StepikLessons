@@ -36,5 +36,21 @@ for i in range(len(s)):
   previous = s[i]
 print(counter)
 
+# Сохраняем входящую строку как список целых чисел.
+x = list(map(int, input().split()))
+
+# Задаём начальное значение счётчика.
+count = 0
+
+# В цикле проверяем условие и изменяем значение счётчика.
+for i in range(1, len(x)):
+  if x[i] > x[i-1]:
+    count += 1
+
+# Выводим результат.
+print(count)
+
 print((lambda n: sum([x < n[i+1] for i, x in enumerate(n[:-1])]))(list(map(int, input().split()))))
+
+(lambda x: print(sum([x[i + 1] > x[i] for i in range(len(x) - 1)])))(list(map(int, input().split())))
 '''
