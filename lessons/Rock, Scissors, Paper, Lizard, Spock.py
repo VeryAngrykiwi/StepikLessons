@@ -85,5 +85,21 @@ elif s2 == s[s.index(s1) - 2] or s2 == s[s.index(s1) + 1]:
     print("Тимур")
 else:
     print("Руслан")
-  
+
+
+timur, ruslan = input(), input()
+winner = 'Тимур'
+
+if timur == ruslan:
+    winner = 'ничья'
+elif (
+      timur == 'камень' and ruslan in ('бумага', 'Спок') or 
+      timur == 'ножницы' and ruslan in ('камень', 'Спок') or 
+      timur == 'бумага' and ruslan in ('ножницы', 'ящерица') or
+      timur == 'ящерица' and ruslan in ('камень', 'ножницы') or
+      timur == 'Спок' and ruslan in ('бумага', 'ящерица')
+     ):
+    winner = 'Руслан'
+    
+print(winner) 
 '''
