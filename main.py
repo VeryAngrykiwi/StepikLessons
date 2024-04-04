@@ -1,13 +1,14 @@
 n = int(input())
 matrix = []
+for k in range(n):
+    tmp = [int(x) for x in input().split()]
+    matrix.append(tmp)
 
-while len(matrix) < n:
-    row = list(map(int, input().split()))
-    matrix.append(row)
+max = matrix[0][0]
 
 for i in range(n):
-    average = sum(matrix[i]) / n
-    count = sum(1 for elem in matrix[i] if elem > average)
-    print(count)
-    
+    for q in range(n):
+        if i >= q and matrix[i][q] > max:
+            max = matrix[i][q]
 
+print(max)
