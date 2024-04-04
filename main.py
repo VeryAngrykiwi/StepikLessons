@@ -1,37 +1,13 @@
-import math
+n = int(input())
+matrix = []
 
-def sum (a,b) -> int:
-  return a+b
+while len(matrix) < n:
+    row = list(map(int, input().split()))
+    matrix.append(row)
 
-def sub (a,b) -> int:
-  return a-b
+for i in range(n):
+    average = sum(matrix[i]) / n
+    count = sum(1 for elem in matrix[i] if elem > average)
+    print(count)
+    
 
-def mul (a,b) -> int:
-  return a*b
-
-def chastnoe (a,b) -> int:
-  return a/b
-
-def celoe (a,b) -> int:
-  return a%b
-
-def ostatok (a,b) -> int:
-  return a//b
-
-def stepen (a,b) -> int:
-  a = a**10
-  b = b**10
-  return math.sqrt(a+b)  
-
-def calculate():
-  a = int(input())
-  b = int(input())
-  print(sum(a,b))
-  print(sub(a,b))
-  print(mul(a,b))
-  print(chastnoe(a,b))
-  print(ostatok(a,b))
-  print(celoe(a,b))
-  print(stepen(a,b))
-
-calculate()
