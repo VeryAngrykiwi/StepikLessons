@@ -76,4 +76,19 @@ n, m, arr = int(input()) , int(input()), []
 for _ in range(n):
     arr += list(map(int, input().split()))
 print(arr.index(max(arr)) // m, arr.index(max(arr)) % m)
+
+
+n, m = int(input()), int(input())
+matrix = []
+for i in range(n):
+    matrix.append([int(j) for j in input().split()])
+highest = max(max(matrix, key=max))
+i, j = 0, 0
+while matrix[i][j] != highest:
+    if j == m - 1:
+        i += 1
+        j = 0
+    else:
+        j += 1
+print(i, j)
 '''
