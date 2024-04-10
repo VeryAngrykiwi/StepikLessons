@@ -1,14 +1,24 @@
-n = int(input())
+n = int(input())  # количество строк
+m = int(input())  # количество столбцов
+
+# Ввод матрицы
 matrix = []
-for k in range(n):
-    tmp = [int(x) for x in input().split()]
-    matrix.append(tmp)
+for _ in range(n):
+    row = list(map(int, input().split()))
+    matrix.append(row)
 
-max = matrix[0][0]
+# Ввод индексов столбцов для обмена
+i, j = map(int, input().split())
 
-for i in range(n):
-    for q in range(n):
-        if i >= q and matrix[i][q] > max:
-            max = matrix[i][q]
+# Меняем местами столбцы
+while i < 0 or i >= m or j < 0 or j >= m:
+    print("Некорректные индексы столбцов. Попробуйте снова.")
+    i = int(input())
+    j = int(input())
 
-print(max)
+for row in matrix:
+    row[i], row[j] = row[j], row[i]
+
+# Вывод результата
+for row in matrix:
+    print(*row)
