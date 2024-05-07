@@ -222,14 +222,92 @@ for i in range(n):
     for j in range(m):
         print(str(matrix[i][j]).ljust(3), end=" ")
     print()
-
-
-
-
-
-
-
 '''
 
+#ЗАПОЛНЕНИЕ 3
+
+#Вариант 1
+n = int(input())
+
+mtx = [] 
+for _ in range(n):
+  tmp = [0 for _ in range(n)]
+  mtx.append(tmp)
 
 
+for i in range(n): 
+  for q in range(n):
+      mtx[i][i] = 1
+      mtx[i][n-1-i] = 1
+
+[print(*row) for row in mtx]
+
+#Вариант 2
+n = int(input())
+
+mtx = [] #матрица - пустой список 
+for _ in range(n): #цикл наполнения матрицы
+  tmp = [0 for _ in range(n)]
+  mtx.append(tmp)
+
+
+for i in range(n): 
+  for q in range(n):
+    if i == q:
+      mtx[i][q] = 1
+    elif i == n-1-q:
+      mtx[i][q] = 1
+
+[print(*row) for row in mtx]
+print()
+[print(*mtx[i]) for i in range(n)]
+
+'''
+n = int(input())
+matrix = [[0 for _ in range(n)] for _ in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        if i == j or i + j + 1 == n:
+            matrix[i][j] = 1
+
+for row in matrix:
+    print(*row)
+
+
+
+n = int(input())
+
+res = [[1 if i == j or i == n - j - 1 else 0 for j in range(n)] for i in range(n)]
+
+for x in res:
+    print(*x)
+
+
+
+n = int(input())
+for i in range(n):
+    print(*[str(int(j == i or i == n - j - 1)).ljust(3)  for j in range(n)])
+
+
+
+a = int(input())
+for i in range(a):
+    sample = [0] * a
+    sample[i] = 1
+    sample[~i] = 1
+    print(*sample)
+
+
+
+n = int(input())
+[print(*['01'[i == j or i == n - j - 1] for j in range(n)], sep='  ') for i in range(n)]
+
+
+
+[[print(*['1'.ljust(3) if i == j or i + j == n - 1 else '0'.ljust(3) for i in range(n)]) for j in range(n)] for n in [int(input())]]
+
+
+
+(lambda n=int(input()): [print(*[str(int(i==j or i==n-j-1)).ljust(3) for j in range(n)]) for i in range(n)])()
+'''
