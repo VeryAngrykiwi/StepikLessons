@@ -381,7 +381,130 @@ for i in matrix:
     print(*i)
 '''
 
+#ЗАПОЛНЕНИЕ №5:
 
+#Вариант 1:
+
+n, m = map(int, input().split())
+mtx = [[0 for i in range(m)] for q in range(n)]
+
+for i in range(m):
+    mtx[0][i] = i+1
+
+for i in range(1, n):
+    for j in range(m):
+        x = j + 1
+        if x > m - 1:
+            x = 0
+        mtx[i][j] = mtx[i-1][x]
+
+[print(*row) for row in mtx]
+
+'''
+n, m = [int(i) for i in input().split()]
+matrix = [[0] * m for _ in range(n)]
+
+for i in range(n):
+    for j in range(m):
+        matrix[i][j] = (i + j) % m + 1
+          
+for i in range(n):
+    for j in range(m):
+        print(str(matrix[i][j]).ljust(3), end=' ')
+    print()
+
+
+
+n, m = [int(i) for i in input().split()]
+numbers = list(range(1, m + 1))
+matrix = []
+
+for _ in range(n):
+    matrix.append(numbers)
+    # переносим первый элемент списка в конец
+    numbers = numbers[1:] + [numbers[0]]
+
+for row in matrix:
+    print(*row)
+    
+    
+    
+n, m = map(int, input().split())
+row = list(range(1, m + 1))
+for _ in range(n):
+    print(*row)
+    x = row.pop(0)
+    row.append(x)
+    
+    
+    
+n, m = map(int, input().split())
+a = [i for i in range(1, m+1)]
+for i in range(n):
+    print(*a)
+    a = a[1:] + a[:1]
+    
+    
+    
+n, m = map(int, input().split())
+matrix = [[(j + i) % m + 1 for j in range(m)] for i in range(n)]
+for item in matrix:
+    print(*[str(it).ljust(3) for it in item])
+    
+    
+    
+n, m = [int(i) for i in input().split()]
+l = list(range(1, m + 1))
+for i in range(n):
+    print(*l)
+    l.append(l.pop(0))
+    
+    
+    
+nm = input().split()
+n, m = int(nm[0]), int(nm[1])
+matrix, num, num2, num3  = [], 1, 1, 1
+# создаем матрицу
+for i in range(n):
+    temp = []
+    for j in range(m):
+        temp.append(0)
+    matrix.append(temp)
+# насоздавал переменных огого...
+for i in range(len(matrix)):
+    num = num3
+    for j in range(len(matrix[0])):
+        matrix[i][j] = num
+        num += 1
+        if num > m:
+            num = num2
+    num3 += 1
+    if num3 > m:
+        num3 = 1
+# выводим матрицу
+for r in range(n):                     
+    for c in range(m):
+        print(str(matrix[r][c]).ljust(3), end='')
+    print()
+    
+    
+    
+n, m = [int(num) for num in input().split()]
+matrix = [[1 + (j + i) % m for j in range(m)] for i in range(n)]
+for row in matrix:
+    print(*row)
+    
+    
+
+n, m  = map(int, input().split())
+for r in range(n):
+    print(*[((c + r) % m) + 1 for c in range(m)])
+    
+    
+    
+n, m = map(int, input().split())
+[print(*(str((i * (m + 1) + j) % m + 1).ljust(3) for j in range(m))) for i in range(n)]
+'''
 
 
 
