@@ -367,8 +367,18 @@ for i, j in map(sorted, enumerate(range(n - 1, -1, -1))):
     
     
 
+(lambda n: [print(*[str(int((i - j) * (i - n + 1 + j) <= 0)).ljust(3) for i in range(n)]) for j in range(n)])(int(input()))
 
 
+
+n =int(input())
+matrix = [[0] * n for i in range(n)]
+for i in range(n):
+    for j in range(i,n - i):
+        matrix[i][j] = 1
+        matrix[-1-i][j] = 1
+for i in matrix:
+    print(*i)
 '''
 
 
