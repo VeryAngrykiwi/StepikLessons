@@ -309,5 +309,69 @@ n = int(input())
 
 
 
-(lambda n=int(input()): [print(*[str(int(i==j or i==n-j-1)).ljust(3) for j in range(n)]) for i in range(n)])()
+(lambda n=int(input()): [print(*[str(int(i==j or i==n-j-1)).ljust(3) for j in range(n)]) for i in range(n)])
 '''
+
+
+#ЗАПОЛНЕНИЕ 4:
+
+#Вариант 1:
+n = int(input())
+
+mtx = [[0 for _ in range(n)] for _ in range(n)]
+
+for i in range(n):
+  for q in range(n):
+    if (i <= q and i <= n - 1 - q) or (i >= q and i >= n - 1 - q):
+      mtx[i][q] = 1
+
+[print(*row) for row in mtx]
+
+
+
+'''
+n = int(input())
+matrix = [[0] * n for _ in range(n)]
+
+for i in range(n):
+    for j in range(n):
+        if (i <= j and i + j + 1 <= n) or (i >= j and i + j + 1 >= n):
+            matrix[i][j] = 1
+            
+for i in range(n):
+    for j in range(n):
+        print(str(matrix[i][j]).ljust(3), end=' ')
+    print()
+
+
+
+n = int(input())
+q = [[((i - j) * (n - i - j - 1) >= 0) * 1 for i in range(n)] for j in range(n)]
+for x in q:
+    print(*x, sep='  ') 
+    
+
+
+n = int(input())
+
+draw = lambda i, j: 0 if j<i<n-1-j or j>i>n-1-j else 1
+mtrx = [[draw(i, j) for j in range(n)] for i in range(n)]
+
+for row in mtrx:
+    print(*row)
+    
+    
+n = int(input())
+for i, j in map(sorted, enumerate(range(n - 1, -1, -1))):
+    print('  '.join('01'[i <= k <= j] for k in range(n)))
+    
+    
+
+
+
+'''
+
+
+
+
+
