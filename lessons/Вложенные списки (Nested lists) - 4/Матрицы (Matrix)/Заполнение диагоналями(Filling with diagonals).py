@@ -212,4 +212,31 @@ elif a == b:
 
 for i in range(a):
     print(*matrix[i])
+    
+    
+
+n, m = [int(i) for  i in input().split()]           #Получаем размер матрицы
+next_number = iter(range(1, n * m + 1))             #Делаем генератор следующего числа в матрице
+res = [[0 for j in range(m)] for i in range(n)]     #Создаем пустую матрицу для заполнения
+list_step = []                                      #Подготавливаем пустой список диаганалей
+
+if 1 in [n, m]:                                     #Делаем генерацию всех диаганалей 
+    list_step.extend([1] * max(n, m))               #Заполняем для матриц где одна из сторон равна 1
+else:
+    step = min(n, m)                                #Определяем максимальный шаг(диаганаль) 
+    list_step.extend([i for i in range(1, step + 1)])   #Заполняем список диагаей приростающими значениями
+    if n - m:
+        list_step.extend([step for _ in range(m - n)])  #Добавляем повторяющие диаганали, вслучии если матрица "широкая"
+    if n - step - 1:
+        list_step.extend([step for _ in range(n - step)])   #Добавляем повторяющие диаганали, вслучии если матрица "длинная"
+    list_step.extend([step - i if  step - i > 0 else 1 for i in range(1, step)])   #Заполняем список диагаей спадающими значениями 
+
+for d in range(len(list_step)):                     #Делаем проход по диаганалям
+    index_j = d if d < m else m - 1                 #Вычисляем координаты i для начала заполнения
+    index_i = 0 if d < m else d - m + 1             #ВЫчисляем координаты j для начала заполнения
+    for i in range(list_step[d]):                   #Берем диаганаль и начинаем проход по ней
+        res[index_i + i][index_j - i] = str(next(next_number)).ljust(3) #Заполняем конкретную точку на диаганали следующим значением
+
+for item in res:    #Типовой вывод матрицы, тута взяли строку
+    print(*item)    #Выводим строку
 '''
