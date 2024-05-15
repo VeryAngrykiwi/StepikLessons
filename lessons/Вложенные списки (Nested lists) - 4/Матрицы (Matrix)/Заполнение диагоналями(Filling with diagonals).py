@@ -239,4 +239,42 @@ for d in range(len(list_step)):                     #Делаем проход �
 
 for item in res:    #Типовой вывод матрицы, тута взяли строку
     print(*item)    #Выводим строку
+    
+
+[print(*[str((r * (r + 1) - (r > n) * (r - n) * (r - n + 1) - (r >= m) * (r - m + 1) * (r - m + 2)) // 2 + i + 1).ljust(2) for r in range(i, i + m)]) for n, m in [map(int, input().split())] for i in range(n)]
+
+
+
+def print_matrix(a):
+    for row in a:
+        print(*row)
+
+def fill_line(a, irow, icol, k):
+    """заполняем одну диагональную линию сверху вниз от (irow,icol) начиная с числа k,
+    возвращаем k для следующей клетки
+    """
+    m = len(a)
+    n = len(a[0])
+    while 0 <= irow < m and 0 <= icol < n:
+        # print(f'k={k} irow={irow} icol={icol}')
+        a[irow][icol] = k
+        k += 1
+        irow += 1
+        icol -= 1
+    return k
+
+def fill_matrix(a):
+    k = 1
+    for j in range(len(a[0])):
+        k = fill_line(a, 0, j, k)
+    j = len(a[0]) - 1
+    for i in range(1, len(a)):
+        k = fill_line(a, i, j, k)
+    
+rows, cols = map(int, input().split())
+a = [[0]*cols for _ in range(rows)] 
+#k = fill_line(a, 0, 0, 1)
+
+fill_matrix(a)
+print_matrix(a)
 '''
