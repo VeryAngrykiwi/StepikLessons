@@ -277,4 +277,20 @@ a = [[0]*cols for _ in range(rows)]
 
 fill_matrix(a)
 print_matrix(a)
+
+
+
+import numpy as np
+
+n, m = [int(_) for _ in input().split()]
+matrix = np.zeros((n, m), dtype= int)
+value = 1
+for j in range(n + m - 1):
+    for i in range(j + 1):
+        if (i < n) and (j - i < m):
+            matrix[i][j - i] = value
+            value += 1
+
+for row in matrix:
+    print(*row)
 '''
