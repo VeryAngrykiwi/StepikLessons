@@ -1,24 +1,22 @@
-n = int(input())  # количество строк
-m = int(input())  # количество столбцов
+n = int(input())
 
-# Ввод матрицы
-matrix = []
-for _ in range(n):
-    row = list(map(int, input().split()))
-    matrix.append(row)
+mtx = [] #матрица - пустой список 
+for _ in range(n): #цикл наполнения матрицы
+  tmp = [0 for _ in range(n)]
+  mtx.append(tmp)
 
-# Ввод индексов столбцов для обмена
-i, j = map(int, input().split())
 
-# Меняем местами столбцы
-while i < 0 or i >= m or j < 0 or j >= m:
-    print("Некорректные индексы столбцов. Попробуйте снова.")
-    i = int(input())
-    j = int(input())
+for i in range(n): 
+  for q in range(n):
+    if i == q:
+      mtx[i][q] = 1
+    elif i == n-1-q:
+      mtx[i][q] = 1
 
-for row in matrix:
-    row[i], row[j] = row[j], row[i]
+[print(*row) for row in mtx]
+print()
+[print(*mtx[i]) for i in range(n)]
 
-# Вывод результата
-for row in matrix:
-    print(*row)
+
+
+
