@@ -506,5 +506,17 @@ n, m = map(int, input().split())
 [print(*(str((i * (m + 1) + j) % m + 1).ljust(3) for j in range(m))) for i in range(n)]
 '''
 
+n, m = map(int, input().split())
+g = (i for i in range(1, n*m+1))
+a = [[str(g.__next__()).ljust(2) for _ in range(m)] for _ in range(n)]
+
+for i in a:
+    if a.index(i) % 2 != 0:
+        i.reverse()
+#        k = ' '.join(map(str, i))
+        print(*i)
+    else:
+  #      k = ' '.join(map(str, i))
+        print(*i)
 
 
