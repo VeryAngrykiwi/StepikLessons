@@ -113,4 +113,32 @@ matrix1 = matrix
 for _ in range(int(input()) - 1):
     matrix1 = [[sum(matrix1[i][x] * matrix[x][j] for x in range(n)) for j in range(n)] for i in range(n)] 
 [print(*matrix1[i]) for i in range(n)]
+
+
+
+n = int(input())  # считали размерность 1-й матрицы n строк m столбцов
+matr1 = [[0] * n for _ in range(n)]  # создаём матрицу 1
+for i in range(n):  # заполняем строки 1-й матрицы
+    matr1[i] = [int(a) for a in input().split()]  # заполняем ячейки 1 матрицы
+
+m = int(input())  # считали размерность степень
+matr2 = [[0] * n for _ in range(n)]  # создаём матрицу 2
+for i in range(n):
+    for j in range(n):
+        matr2[i][j] = matr1[i][j]  # заполняем строки матрицы списками чисел
+
+matr3 = [[0] * n for _ in range(n)]  # создаём матрицу 3
+for a in range(m - 1):
+    for i in range(n):
+        for j in range(n):
+            for l in range(n):
+                matr3[i][j] += matr1[i][l] * matr2[l][j]
+        matr1[i] = matr3[i]
+        matr3[i] = [0] * n
+
+
+for r in range(n):  # выводим матрицу с расширением
+    for c in range(n):
+        print(matr1[r][c], end=' ')  
+    print()
 '''
