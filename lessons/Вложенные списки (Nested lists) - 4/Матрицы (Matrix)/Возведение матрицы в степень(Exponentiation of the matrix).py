@@ -141,4 +141,29 @@ for r in range(n):  # выводим матрицу с расширением
     for c in range(n):
         print(matr1[r][c], end=' ')  
     print()
+    
+    
+# Импорт библиотеки numpy для работы с матрицами.
+import numpy as np
+
+# Считываем матрицу и числа n и m.
+n = int(input())
+matrix = np.array([list(map(int, input().split())) for _ in range(n)]).astype(np.int64)
+m = int(input())
+
+# Вычисляем итоговую матрицу.
+matrix_power = np.linalg.matrix_power(matrix, m)
+
+# Вывод результатов.
+print(*[' '.join([f'{el}' for el in row.tolist()]) for row in matrix_power], sep='\n')
+
+
+print(*[' '.join([f'{el}' for el in row.tolist()])
+        for row in
+        __import__('numpy').linalg.matrix_power(
+                __import__('numpy').array([list(map(int, input().split()))
+                                           for _ in
+                                           range(int(input()))]).astype(__import__('numpy').int64),
+                int(input()))],
+      sep='\n')
 '''
