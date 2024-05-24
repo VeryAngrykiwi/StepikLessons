@@ -1,19 +1,15 @@
-# вводные данные матрицы
-n, m = map(int, input().split()) 
-mtx1 = [list(map(int, input().split())) for _ in range(n)]
-input() # пустая строка()
-m, k = map(int, input().split())
-mtx2 = [list(map(int, input().split())) for _ in range(m)]
+# Вершина параболы
+# Уравнение параболы имеет вид y = ax^2 + bx + c, где a ≠ 0
+# Напишите программу, которая по введенным значениям a, b, c определяет и выводит вершину параболы.
 
-# перемножение матрицы list comprehension
-result = [
-    [
-        sum(mtx1[i][p] * mtx2[p][j] for p in range(m)) 
-        for j in range(k)
-    ] 
-    for i in range(n)
-]
+# Ввод коэффициентов
+a = int(input())
+b = int(input())
+c = int(input())
 
-#вывод матрицы
-for row in result:
-    print(*row)
+# Вычисление координат вершины
+x_vertex = -b / (2 * a)
+y_vertex = (4 * a * c - b ** 2) / (4 * a)
+
+# Вывод результата
+print(f'({x_vertex}, {y_vertex})')
