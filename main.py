@@ -1,15 +1,9 @@
-# Вершина параболы
-# Уравнение параболы имеет вид y = ax^2 + bx + c, где a ≠ 0
-# Напишите программу, которая по введенным значениям a, b, c определяет и выводит вершину параболы.
+n = int(input())
+students = [list(input().split()) for _ in range(n)]
 
-# Ввод коэффициентов
-a = int(input())
-b = int(input())
-c = int(input())
-
-# Вычисление координат вершины
-x_vertex = -b / (2 * a)
-y_vertex = (4 * a * c - b ** 2) / (4 * a)
-
-# Вывод результата
-print(f'({x_vertex}, {y_vertex})')
+for row in students:
+  print(*row)
+print()
+for i in range(n):
+  if int(students[i][1]) > 3:
+    print(*students[i])
