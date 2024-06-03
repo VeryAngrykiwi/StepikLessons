@@ -84,4 +84,6 @@ def r(n, m, k, x, y, z, t, a):
     return one_b, two_b, no_b
 
 print(*r(*[int(input()) for _ in range(8)]), sep='\n')
+add
+
 '''
